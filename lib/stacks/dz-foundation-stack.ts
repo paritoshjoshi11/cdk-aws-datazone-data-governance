@@ -1,10 +1,10 @@
-import * as cdk from 'aws-cdk-lib';
+import {Stack,StackProps} from 'aws-cdk-lib';
 import { Role,ServicePrincipal,PolicyStatement,Effect,CompositePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
-export class FoundationStack extends cdk.Stack {
+export class FoundationStack extends Stack {
   public roleDomainExecution : Role;
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
     // creation of IAM role for datazone
     this.roleDomainExecution = this.createRoleDomainExecution();
